@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+<script src="{% static "js/rango-jquery.js" %}"></script>
+<script>
+	var csrftoken = getCookie('csrftoken');
+</script> 
+
+<html>
+  <head>
+    <title>Base</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet" type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  </head>
+  
+  <body>
+    <div class="header">
+      <h1>Live Test Page</h1>
+    </div>
+          {% block content %}
+          {% endblock %}
+  </body>
+ </html>

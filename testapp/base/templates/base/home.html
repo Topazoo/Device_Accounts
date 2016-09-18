@@ -1,0 +1,89 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% csrf_token %}
+	<br>
+	<center>
+		<h1body>Current Tests: </h1body>
+		<br>
+		<hr>
+		<h1body>jQuery: </h1body>
+		<p>(Semi) Permanently remember a device based on a chosen name:</p>
+		<div class="col-md-12">
+			<div class="col-md-6" style="padding-top: 1em; padding-bottom: 1em;">
+				<button id="set-btn"> Set a device ID</button>
+			</div>
+			<div class="col-md-6" style="padding-top: 1em; padding-bottom: 1em;">
+				<button id="get-btn">Get a device ID</button>
+			</div>
+		</div>
+		<p>This doesn't and shouldn't work across browsers or after a cache clear</p>
+		<p>It should across device restarts and network changes if cookies are enabled</p>
+		<br>
+		<p>If the device ID ever can't be found and you didn't clear</p>
+		<p>your cookies manually, shoot me an email!</p>
+		<br>
+		<p>The device ID can be changed manually via Javascript making this method insecure</p>
+	<hr>
+	  <br>
+		<h1body>jQuery + Python (Django): </h1body>
+		<p>(Semi) Permanently remember a device based on a simple, backend-generated encryption:</p>
+		<div class="col-md-12">
+			<div class="col-md-6" style="padding-top: 1em; padding-bottom: 1em;">
+				<button id="set-btn-py"> Set a device ID</button>
+			</div>
+			<div class="col-md-6" style="padding-top: 1em; padding-bottom: 1em;">
+				<button id="get-btn-py">Get a device ID</button>
+			</div>
+		</div>
+		<p>This doesn't and shouldn't work accross browsers or after a cache clear</p>
+		<p>It should accross device restarts and network changes if cookies are enabled</p>
+		<br>
+		<p>If the device ID ever can't be found and you didn't clear</p>
+		<p>your cookies manually, shoot me an email!</p>
+		<br>
+		<p>The device ID can be changed manually via Javascript making this method insecure</p>
+		<p>However, it is randomly generated making it harder to spoof</p>
+		<p>If you can find the encryption algorithm in the server code let me know ASAP</p>
+		<div class="col-md-12">
+			<button id="clr-btn">Clear a device ID</button>
+		</div>
+	<br>
+	<hr>
+		<h1body>jQuery + Python (Django) + PyCryptodome (RSA): </h1body>
+		<p>View a saved message on only this device (or browser) and website:</p>
+		<div class="col-md-12">
+			<div class="col-md-6" style="padding-top: 1em; padding-bottom: 1em;">
+				<button id="set-btn-kp">Encrypt a message</button>
+			</div>
+			<div class="col-md-6" style="padding-top: 1em; padding-bottom: 1em;">
+				<button id="get-btn-kp">Read your message</button>
+			</div>
+		</div>
+		<p>This doesn't and shouldn't work across browsers or after a cache clear</p>
+		<p>It should across device restarts and network changes if cookies are enabled</p>
+		<br>
+		<p>If the message ever can't be found and you didn't clear</p>
+		<p>your cookies manually, shoot me an email!</p>
+		<br>
+		<p>The key exchange should be impossible to recreate here.</p>
+		<p>If you can find the encryption algorithm/private key on the server code let me know ASAP</p>
+		<div class="col-md-12">
+			<button id="clr-msg">Clear a message</button>
+		</div>
+	<br>
+	<hr>
+	  <br><br><br><br>
+	<div class="col-md-12">
+		<h1body>This is a live test page for various projects</h1body>
+	</div>
+  <br><br><br><br>
+	<div class="col-md-12">
+		<h1body>Curious?</h1body>
+	</div>
+	<div class="col-md-12">
+		<h1body>Contact pswanson@ucdavis.edu</h1body>
+		<br><br><br><br><hr>
+	</div>
+	</center>
+  
+{% endblock %}
