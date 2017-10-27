@@ -2,7 +2,7 @@
 ### Encrypted key exchange between client and server
 
 ## This Django site can temporarily pair to devices
-This allows the devices to access content specifically tailored for that device
+This allows for content specifically tailored for that device
 
 ## How it works
 
