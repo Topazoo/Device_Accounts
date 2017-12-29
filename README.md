@@ -2,17 +2,27 @@
 ### Encrypted key exchange between client and server
 
 ## This Django site can temporarily pair to devices
-This allows for content specifically tailored for that device
+This allows for content specifically tailored for that device via HTML 5 local storage. The advantages of this method are fourfold:
 
-## How it works
+* First, unlike cookies, local storage data has no expiration date and can only be cleared on command. 
+* Second, cookies are limited to 4,096b of storage space while local storage can store up to 5mb. 
+* Third, cookies stored by a server are sent on every request to that server via HTTP header, local storage data is sent only when explicitely requested.
+* Fourth, Some users or browsers may have cookies disabled, but will still allow for local storage access.
+
+## But isn't local storage vulnerable to XSS attacks or Javascript access?
+It is! This application accounts for this by encrypting and decrypting local storage data on the server. The server generates a unique ID and public/private key combination for the client. The private key and ID are saved by the server, and a copy of the public key and ID are stored in local storage on the client. When accessing data, the public key and ID are requested from the client and used to verify the device.
 
 ### On the front end
+Certain elements of the website initiate JQuery AJAX requests that allow client-server communication.
+
 A number of jQuery AJAX requests can be found in /testapp/base/static/js/rango-jquery.js
 - Clicking an element with the set-btn/get-btn id will prompt a popup where the user can assign the device a name or retrieve its name
 - Clicking an element with the set-btn-py/get-btn-py id will generate a simply encrypted name or retrieve that name
 - Clicking an element with the set-btn-kp/get-btn-kp id will allow you to store and retrieve a message
 
 ### On the back end
+Data from the jQuery requests is used to store or retrieve data.
+
 Each jQuery request calls a Python function in /testapp/base/views.py
 All encryption is done in Python on the back end
 - Clicking an element with the set-btn-py/get-btn-py id runs a basic encryption on a name passed via AJAX request
