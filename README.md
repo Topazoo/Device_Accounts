@@ -7,7 +7,7 @@ This allows for content specifically tailored for that device via HTML 5 local s
 * First, unlike cookies, local storage data has no expiration date and can only be cleared on command. 
 * Second, cookies are limited to 4,096b of storage space while local storage can store up to 5mb. 
 * Third, cookies stored by a server are sent on every request to that server via HTTP header, local storage data is sent only when explicitely requested.
-* Fourth, Some users or browsers may have cookies disabled, but will still allow for local storage access.
+* Fourth, some users or browsers may have cookies disabled, but will still allow for local storage access.
 
 ## But isn't local storage vulnerable to XSS attacks or Javascript access?
 It is! This application accounts for this by encrypting and decrypting local storage data on the server. The server generates a unique ID and public/private key combination for the client. The private key and ID are saved by the server, and a copy of the public key and ID are stored in local storage on the client. When accessing data, the public key and ID are requested from the client and used to verify the device.
